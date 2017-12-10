@@ -45,11 +45,17 @@ public extension DataSetupable {
     
 }
 
+public enum ReusableViewKind {
+    case cell, headerFooterView
+}
+
 /// A protocol for reusable views
 public protocol Reusable {
     
     static var staticReuseIdentifier: String { get }
     
+    static func register(viewKind: ReusableViewKind, inTableView tableView: UITableView)
+
 }
 
 /// Implements the `Reusable` protocol by setting the `staticReuseIdentifier` to the type name of the implementer of this protocol
@@ -66,6 +72,19 @@ extension StaticTypeNameReusable {
 
 /// Used for `registerClass` in table & collection views
 public protocol ReusableViewClass: class, StaticTypeNameReusable { }
+
+extension ReusableViewClass {
+    
+    public static func register(viewKind: ReusableViewKind, inTableView tableView: UITableView) {
+        switch viewKind {
+            case .cell:
+                tableView.register(Self.self, forCellReuseIdentifier: staticReuseIdentifier)
+            case .headerFooterView:
+                tableView.register(Self.self, forHeaderFooterViewReuseIdentifier: staticReuseIdentifier)
+        }
+    }
+    
+}
 
 
 /// Used for `registerNib` in table & collection views.
@@ -86,8 +105,17 @@ extension ReusableViewNib {
     }
     
     /// :nodoc:
-    static var nib: UINib {
+    public static var nib: UINib {
         return UINib(nibName: nibName, bundle: Bundle(for: self))
+    }
+    
+    public static func register(viewKind: ReusableViewKind, inTableView tableView: UITableView) {
+        switch viewKind {
+            case .cell:
+                tableView.register(nib, forCellReuseIdentifier: staticReuseIdentifier)
+            case .headerFooterView:
+                tableView.register(nib, forHeaderFooterViewReuseIdentifier: staticReuseIdentifier)
+        }
     }
 
 }

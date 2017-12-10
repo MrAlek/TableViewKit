@@ -13,7 +13,6 @@
 		9328428D1FDC838200B6CC91 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932842821FDC838200B6CC91 /* Reusable.swift */; };
 		9328428E1FDC838200B6CC91 /* TableViewCellModel+SeparatorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932842831FDC838200B6CC91 /* TableViewCellModel+SeparatorStyle.swift */; };
 		9328428F1FDC838200B6CC91 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932842841FDC838200B6CC91 /* TableViewDataSource.swift */; };
-		932842901FDC838200B6CC91 /* UITableView+TypeSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932842851FDC838200B6CC91 /* UITableView+TypeSafe.swift */; };
 		932842911FDC838200B6CC91 /* AnyEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932842861FDC838200B6CC91 /* AnyEquatable.swift */; };
 		932842921FDC838200B6CC91 /* TableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932842871FDC838200B6CC91 /* TableViewSection.swift */; };
 		932842941FDC838200B6CC91 /* StandardHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932842891FDC838200B6CC91 /* StandardHeaderFooterView.swift */; };
@@ -72,7 +71,6 @@
 		932842821FDC838200B6CC91 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		932842831FDC838200B6CC91 /* TableViewCellModel+SeparatorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableViewCellModel+SeparatorStyle.swift"; sourceTree = "<group>"; };
 		932842841FDC838200B6CC91 /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
-		932842851FDC838200B6CC91 /* UITableView+TypeSafe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+TypeSafe.swift"; sourceTree = "<group>"; };
 		932842861FDC838200B6CC91 /* AnyEquatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyEquatable.swift; sourceTree = "<group>"; };
 		932842871FDC838200B6CC91 /* TableViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSection.swift; sourceTree = "<group>"; };
 		932842891FDC838200B6CC91 /* StandardHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardHeaderFooterView.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 				932842831FDC838200B6CC91 /* TableViewCellModel+SeparatorStyle.swift */,
 				932842841FDC838200B6CC91 /* TableViewDataSource.swift */,
 				932842871FDC838200B6CC91 /* TableViewSection.swift */,
-				932842851FDC838200B6CC91 /* UITableView+TypeSafe.swift */,
 				932842AA1FDC84F800B6CC91 /* UIView+LoadFromNib.swift */,
 			);
 			path = Sources;
@@ -389,7 +386,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				932842A31FDC83F900B6CC91 /* CompareArrays.swift in Sources */,
-				932842901FDC838200B6CC91 /* UITableView+TypeSafe.swift in Sources */,
 				932842921FDC838200B6CC91 /* TableViewSection.swift in Sources */,
 				9328428D1FDC838200B6CC91 /* Reusable.swift in Sources */,
 				9328428F1FDC838200B6CC91 /* TableViewDataSource.swift in Sources */,

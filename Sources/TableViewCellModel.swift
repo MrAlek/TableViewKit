@@ -27,6 +27,9 @@ public struct TableViewCellModel: Identifiable {
     /// The data for this cell.
     public var data: AnyEquatable?
     
+    /// A function that registers this cell for reuse.
+    public var cellReuseRegistrator: ((UITableView) -> Void)?
+
     /// A function that configures the table view cell with data when it is dequeued.
     public var cellConfigurator: CellConfigurator?
     
@@ -81,6 +84,7 @@ public struct TableViewCellModel: Identifiable {
     /// - Parameters:
     ///   - identifier: A string that uniquely identifies this cell model within the table view.
     ///   - cellReuseIdentifier: The identifier for the table view cell to reuse for this model.
+    ///   - cellReuseRegistrator: A function that registers this cell for reuse.
     ///   - data: The data for this cell.
     ///   - estimatedHeight: The estimated height for this cell.
     ///   - cellConfigurator: A function that configures the table view cell with data when it is dequeued.
@@ -97,6 +101,7 @@ public struct TableViewCellModel: Identifiable {
     public init(
         identifier: String,
         cellReuseIdentifier: String,
+        cellReuseRegistrator: ((UITableView) -> Void)? = nil,
         data: AnyEquatable? = nil,
         estimatedHeight: CGFloat? = nil,
         cellConfigurator: CellConfigurator? = nil,
@@ -113,6 +118,7 @@ public struct TableViewCellModel: Identifiable {
         
         self.identifier = identifier
         self.cellReuseIdentifier = cellReuseIdentifier
+        self.cellReuseRegistrator = cellReuseRegistrator
         self.data = data
         self.estimatedHeightClosure = { _ in return estimatedHeight ?? TableViewCellModel.StandardHeight }
         self.cellConfigurator = cellConfigurator
@@ -185,6 +191,8 @@ public struct TableViewCellModel: Identifiable {
         self.isMultiSelectable = isMultiSelectable
         
         cellReuseIdentifier = Cell.staticReuseIdentifier
+        self.cellReuseRegistrator = { Cell.register(viewKind: .cell, inTableView: $0) }
+        
         self.cellConfigurator = { tableView, cell in
             guard let cell = cell as? Cell else { fatalError("Wrong cell type for model") }
             cell.setSeparatorStyle(separatorStyle)

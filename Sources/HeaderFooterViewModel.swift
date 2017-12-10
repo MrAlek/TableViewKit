@@ -21,6 +21,9 @@ public struct TableViewHeaderFooterViewModel: Identifiable {
     /// The reuse identifier for this view
     public let viewReuseIdentifier: String
     
+    /// A function that registers this view for reuse.
+    public var viewReuseRegistrator: ((UITableView) -> Void)?
+    
     /// This view's data
     public let data: AnyEquatable?
     
@@ -48,12 +51,14 @@ public struct TableViewHeaderFooterViewModel: Identifiable {
     /// - Parameters:
     ///   - identifier: A unique identifier for this header footer view.
     ///   - viewReuseIdentifier: The reuse identifier for the view.
+    ///   - viewReuseRegistrator: A function that registers this cell for reuse.
     ///   - data: Any optional data the header footer view needs.
     ///   - estimatedHeight: The estimated height of the view. Defaults to standard 28.0pts.
     ///   - configurator: A configuration function for setting up the view when it becomes visible.
-    public init(identifier: String, viewReuseIdentifier: String, data: AnyEquatable? = nil, estimatedHeight: CGFloat = TableViewHeaderFooterViewModel.StandardHeight, configurator: Configurator? = nil) {
+    public init(identifier: String, viewReuseIdentifier: String, viewReuseRegistrator: ((UITableView) -> Void)? = nil, data: AnyEquatable? = nil, estimatedHeight: CGFloat = TableViewHeaderFooterViewModel.StandardHeight, configurator: Configurator? = nil) {
         self.identifier = identifier
         self.viewReuseIdentifier = viewReuseIdentifier
+        self.viewReuseRegistrator = viewReuseRegistrator
         self.data = data
         self.estimatedHeightClosure = { _ in return estimatedHeight }
         self.configurator = configurator
@@ -72,6 +77,7 @@ public struct TableViewHeaderFooterViewModel: Identifiable {
         self.identifier = identifier
         self.data = data
         self.viewReuseIdentifier = View.staticReuseIdentifier
+        self.viewReuseRegistrator = { View.register(viewKind: .headerFooterView, inTableView: $0) }
         
         self.configurator = { view in
             guard let view = view as? View else { fatalError("Wrong view type for model") }

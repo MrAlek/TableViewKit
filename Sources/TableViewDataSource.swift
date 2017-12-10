@@ -106,7 +106,6 @@ public class TableViewDataSource: NSObject {
     public func setup(with tableView: UITableView) {
         self.tableView = tableView
 
-        tableView.register(StandardHeaderFooterView.self)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.sectionHeaderHeight = UITableViewAutomaticDimension
         tableView.sectionFooterHeight = UITableViewAutomaticDimension
@@ -172,6 +171,7 @@ extension TableViewDataSource: UITableViewDataSource {
     /// :nodoc:
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellModel = sections[indexPath]
+        cellModel.cellReuseRegistrator?(tableView)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.cellReuseIdentifier, for: indexPath)
         cellModel.cellConfigurator?(tableView, cell)
         return cell
@@ -311,6 +311,12 @@ private extension UITableView {
     
     var isMultiSelecting: Bool {
         return (isEditing && allowsMultipleSelectionDuringEditing) || (!isEditing && allowsMultipleSelection)
+    }
+    
+    func headerFooterView(for viewModel: TableViewHeaderFooterViewModel) -> UIView? {
+        viewModel.viewReuseRegistrator?(self)
+        let view = dequeueReusableHeaderFooterView(withIdentifier: viewModel.viewReuseIdentifier)!
+        return viewModel.configurator?(view) ?? view
     }
     
 }
