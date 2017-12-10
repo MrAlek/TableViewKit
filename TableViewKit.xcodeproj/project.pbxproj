@@ -41,6 +41,27 @@
 			remoteGlobalIDString = 52D6D97B1BEFF229002C0205;
 			remoteInfo = TableViewKit;
 		};
+		93BC8A841FDD2C2400881E6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93F649D71FDD2B890067438D /* TableViewKitDemo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93BC8A6C1FDD2BE700881E6D;
+			remoteInfo = TableViewKitDemo;
+		};
+		93BC8A8B1FDD2C4B00881E6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93BC8A871FDD2C4B00881E6D /* TableViewKitDemo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93BC8A6C1FDD2BE700881E6D;
+			remoteInfo = TableViewKitDemo;
+		};
+		93C62CE11FDD2CB4009CBBAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93C62CDB1FDD2CB4009CBBAA /* TableViewKitDemo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93BC8A6C1FDD2BE700881E6D;
+			remoteInfo = TableViewKitDemo;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -65,10 +86,13 @@
 		932842A61FDC841900B6CC91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		932842A81FDC84A000B6CC91 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		932842AA1FDC84F800B6CC91 /* UIView+LoadFromNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+LoadFromNib.swift"; sourceTree = "<group>"; };
+		93BC8A871FDD2C4B00881E6D /* TableViewKitDemo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = TableViewKitDemo.xcodeproj; sourceTree = "<group>"; };
+		93C62CDB1FDD2CB4009CBBAA /* TableViewKitDemo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = TableViewKitDemo.xcodeproj; sourceTree = "<group>"; };
 		93F649B11FDD24870067438D /* AnyEquatableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyEquatableTests.swift; sourceTree = "<group>"; };
 		93F649B21FDD24870067438D /* SectionedArrayCompareTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionedArrayCompareTests.swift; sourceTree = "<group>"; };
 		93F649B31FDD24870067438D /* TableViewDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceTests.swift; sourceTree = "<group>"; };
 		93F649B41FDD24870067438D /* ArrayCompareTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayCompareTests.swift; sourceTree = "<group>"; };
+		93F649D71FDD2B890067438D /* TableViewKitDemo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = TableViewKitDemo.xcodeproj; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* TableViewKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TableViewKit.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* TableViewKitTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TableViewKitTests.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +120,7 @@
 		52D6D9721BEFF229002C0205 = {
 			isa = PBXGroup;
 			children = (
+				93C62CDB1FDD2CB4009CBBAA /* TableViewKitDemo.xcodeproj */,
 				93F649B01FDD24310067438D /* Tests */,
 				9328427F1FDC836400B6CC91 /* Sources */,
 				52D6D99C1BEFF38C002C0205 /* Configs */,
@@ -158,9 +183,35 @@
 		932842A51FDC841900B6CC91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93F649D71FDD2B890067438D /* TableViewKitDemo.xcodeproj */,
+				93BC8A871FDD2C4B00881E6D /* TableViewKitDemo.xcodeproj */,
 				932842A61FDC841900B6CC91 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93BC8A811FDD2C2400881E6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93BC8A851FDD2C2400881E6D /* TableViewKitDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93BC8A881FDD2C4B00881E6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93BC8A8C1FDD2C4B00881E6D /* TableViewKitDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93C62CDC1FDD2CB4009CBBAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93C62CE21FDD2CB4009CBBAA /* TableViewKitDemo.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		93F649B01FDD24310067438D /* Tests */ = {
@@ -269,6 +320,20 @@
 			mainGroup = 52D6D9721BEFF229002C0205;
 			productRefGroup = 52D6D97D1BEFF229002C0205 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 93BC8A881FDD2C4B00881E6D /* Products */;
+					ProjectRef = 93BC8A871FDD2C4B00881E6D /* TableViewKitDemo.xcodeproj */;
+				},
+				{
+					ProductGroup = 93BC8A811FDD2C2400881E6D /* Products */;
+					ProjectRef = 93F649D71FDD2B890067438D /* TableViewKitDemo.xcodeproj */;
+				},
+				{
+					ProductGroup = 93C62CDC1FDD2CB4009CBBAA /* Products */;
+					ProjectRef = 93C62CDB1FDD2CB4009CBBAA /* TableViewKitDemo.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				52D6D97B1BEFF229002C0205 /* TableViewKit-iOS */,
@@ -276,6 +341,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		93BC8A851FDD2C2400881E6D /* TableViewKitDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TableViewKitDemo.app;
+			remoteRef = 93BC8A841FDD2C2400881E6D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		93BC8A8C1FDD2C4B00881E6D /* TableViewKitDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TableViewKitDemo.app;
+			remoteRef = 93BC8A8B1FDD2C4B00881E6D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		93C62CE21FDD2CB4009CBBAA /* TableViewKitDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TableViewKitDemo.app;
+			remoteRef = 93C62CE11FDD2CB4009CBBAA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		52D6D97A1BEFF229002C0205 /* Resources */ = {
@@ -464,7 +553,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.TableViewKit.TableViewKit-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mralek.TableViewKit-iOS";
 				PRODUCT_NAME = TableViewKit;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -485,7 +574,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.TableViewKit.TableViewKit-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mralek.TableViewKit-iOS";
 				PRODUCT_NAME = TableViewKit;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -499,7 +588,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Configs/TableViewKitTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.TableViewKit.TableViewKit-iOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mralek.TableViewKit-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -513,7 +602,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Configs/TableViewKitTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.TableViewKit.TableViewKit-iOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mralek.TableViewKit-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
