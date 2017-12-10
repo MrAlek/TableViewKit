@@ -36,13 +36,13 @@ open class StandardHeaderFooterView: UITableViewHeaderFooterView, DataSetupable,
     }
     
     /// :nodoc:
-    open func setup(_ data: Model) {
-        textLabel?.text = data.title
-        detailTextLabel?.text = data.detailText
+    open func setup(_ model: Model) {
+        textLabel?.text = model.title
+        detailTextLabel?.text = model.detailText
     }
     
     /// :nodoc:
-    open static func estimatedHeight(forWidth width: CGFloat, data: Model) -> CGFloat? {
+    open static func estimatedHeight(forWidth width: CGFloat, model: Model) -> CGFloat? {
         return 28
     }
     

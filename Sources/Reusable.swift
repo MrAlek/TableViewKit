@@ -22,23 +22,23 @@ public protocol StaticHeightType {
 /// A protocol for views that can be setup and sized with some kind of data model.
 public protocol DataSetupable {
     
-    /// The data type.
-    associatedtype Data: AnyEquatable
+    /// The model type.
+    associatedtype Model: AnyEquatable
     
     /// Sets up the view with the provided data.
     ///
-    /// - Parameter data: The data for the view.
-    func setup(_ data: Data)
+    /// - Parameter model: The model for the view.
+    func setup(_ model: Model)
     
     /// FIX-ME: This should be `estimatedSize` instead once collection view support is in for the generic data sources.
-    static func estimatedHeight(forWidth width: CGFloat, data: Data) -> CGFloat?
+    static func estimatedHeight(forWidth width: CGFloat, model: Model) -> CGFloat?
     
 }
 
 public extension DataSetupable {
     
     /// :nodoc:
-    static func estimatedHeight(forWidth width: CGFloat, data: Data) -> CGFloat? {
+    static func estimatedHeight(forWidth width: CGFloat, model: Model) -> CGFloat? {
         // Default implementation for optionality
         return nil
     }

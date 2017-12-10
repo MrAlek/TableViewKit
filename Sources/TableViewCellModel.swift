@@ -139,7 +139,7 @@ public struct TableViewCellModel: Identifiable {
     /// - Parameters:
     ///   - cellType: The type of cell this cell model represents.
     ///   - identifier: A string that uniquely identifies this cell model within the table view.
-    ///   - data: The data for this cell.
+    ///   - model: The model for this cell.
     ///   - cellConfigurator: A function to make extra configuration to the cell when it is dequeued (other than setting its data).
     ///   - isSelectable: Determines if the cell is selectable (and highlightable) or not. Defaults to `true`.
     ///   - isMultiSelectable: Determines if the cell is selectable (and highlightable) or not during multiselection. Defaults to `true`.
@@ -155,7 +155,7 @@ public struct TableViewCellModel: Identifiable {
     public init<Cell: UITableViewCell>(
         cellType: Cell.Type,
         identifier: String,
-        data: Cell.Data,
+        model: Cell.Model,
         cellConfigurator: ((UITableView, Cell) -> Void)? = nil,
         isSelectable: Bool = true,
         isMultiSelectable: Bool = true,
@@ -184,7 +184,7 @@ public struct TableViewCellModel: Identifiable {
         }
         
         self.identifier = identifier
-        self.data = data
+        self.data = model
         self.editActions = editActions
         self.preferredAnimation = preferredAnimation
         self.isSelectable = isSelectable
@@ -197,11 +197,11 @@ public struct TableViewCellModel: Identifiable {
             guard let cell = cell as? Cell else { fatalError("Wrong cell type for model") }
             cell.setSeparatorStyle(separatorStyle)
             cellConfigurator?(tableView, cell)
-            cell.setup(data)
+            cell.setup(model)
         }
         
         self.estimatedHeightClosure = { width in
-            if let estimatedHeight = cellType.estimatedHeight(forWidth: width, data: data) {
+            if let estimatedHeight = cellType.estimatedHeight(forWidth: width, model: model) {
                 return estimatedHeight
             } else if let cellType = cellType as? StaticHeightType.Type {
                 return cellType.height

@@ -58,7 +58,7 @@ class DemoTableViewController: UITableViewController {
         return TableViewCellModel(
             cellType: LabelCell.self,
             identifier: "test cell 1",
-            data: .init(text: "Quotes selected: \(numberOfSelectedQuotes)"),
+            model: .init(text: "Quotes selected: \(numberOfSelectedQuotes)"),
             isSelectable: false,
             isMultiSelectable: false
         )
@@ -68,7 +68,7 @@ class DemoTableViewController: UITableViewController {
         return TableViewCellModel(
             cellType: HandwrittenNoteCell.self,
             identifier: quote.id,
-            data: .init(quote: quote),
+            model: .init(quote: quote),
             selectionHandler: { [weak self] _, _, _ in
                 self?.updateSections(animated: true)
             },

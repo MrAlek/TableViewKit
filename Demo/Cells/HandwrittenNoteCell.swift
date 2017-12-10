@@ -23,13 +23,13 @@ class HandwrittenNoteCell: UITableViewCell, ReusableViewNib, DataSetupable {
         }
     }
     
-    func setup(_ data: HandwrittenNoteCell.Model) {
-        topLabel.text = data.title
-        bottomLabel.text = data.subtitle
-        bottomLabel.isHidden = (data.subtitle == nil)
+    func setup(_ model: HandwrittenNoteCell.Model) {
+        topLabel.text = model.title
+        bottomLabel.text = model.subtitle
+        bottomLabel.isHidden = (model.subtitle == nil)
     }
     
-    static func estimatedHeight(forWidth width: CGFloat, data: Model) -> CGFloat? {
+    static func estimatedHeight(forWidth width: CGFloat, model: Model) -> CGFloat? {
         return 100 // TODO: Add better estimation
     }
 }

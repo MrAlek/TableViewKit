@@ -69,24 +69,24 @@ public struct TableViewHeaderFooterViewModel: Identifiable {
     /// - Parameters:
     ///   - viewType: The type for the header footer view to be dequeued.
     ///   - identifier: A unique identifier for this header footer view.
-    ///   - data: The data for this view.
+    ///   - model: The model data for this view.
     ///   - additionalConfiguration: Any other configuration than setting the view's data to be done when the view becomes visible. Defaults to `nil`.
     ///
     /// - SeeAlso: `ReusableViewType`
-    public init<View: UITableViewHeaderFooterView>(viewType: View.Type, identifier: String, data: View.Data, additionalConfiguration: ((View) -> View)? = nil) where View: ReusableViewType {
+    public init<View: UITableViewHeaderFooterView>(viewType: View.Type, identifier: String, model: View.Model, additionalConfiguration: ((View) -> View)? = nil) where View: ReusableViewType {
         self.identifier = identifier
-        self.data = data
+        self.data = model
         self.viewReuseIdentifier = View.staticReuseIdentifier
         self.viewReuseRegistrator = { View.register(viewKind: .headerFooterView, inTableView: $0) }
         
         self.configurator = { view in
             guard let view = view as? View else { fatalError("Wrong view type for model") }
-            view.setup(data)
+            view.setup(model)
             return additionalConfiguration?(view) ?? view
         }
         
         self.estimatedHeightClosure = { width in
-            if let estimatedHeight = viewType.estimatedHeight(forWidth: width, data: data) {
+            if let estimatedHeight = viewType.estimatedHeight(forWidth: width, model: model) {
                 return estimatedHeight
             } else if let staticHeightView = viewType as? StaticHeightType.Type {
                 return staticHeightView.height
@@ -105,7 +105,7 @@ public struct TableViewHeaderFooterViewModel: Identifiable {
     ///
     /// - SeeAlso: `StandardHeaderFooterView`
     public init(title: String? = nil) {
-        self.init(viewType: StandardHeaderFooterView.self, identifier: title ?? UUID().uuidString, data: StandardHeaderFooterView.Model(title: title))
+        self.init(viewType: StandardHeaderFooterView.self, identifier: title ?? UUID().uuidString, model: .init(title: title))
     }
     
 }

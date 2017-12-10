@@ -26,8 +26,8 @@ fileprivate class TestCell: UITableViewCell, ReusableViewClass, DataSetupable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(_ data: Model) {
-        textLabel?.text = data.title
+    func setup(_ model: Model) {
+        textLabel?.text = model.title
     }
     
 }
@@ -40,8 +40,8 @@ class TableViewDataSourceTests: XCTestCase {
     
     let dataSource =  TableViewDataSource(sections: [
         TableViewSection(identifier: "Test Section", cells: [
-            TableViewCellModel(cellType: TestCell.self, identifier: "test cell 1", data: .init(title: "Testing testing")),
-            TableViewCellModel(cellType: TestCell.self, identifier: "test cell 2", data: .init(title: "Boom"))
+            TableViewCellModel(cellType: TestCell.self, identifier: "test cell 1", model: .init(title: "Testing testing")),
+            TableViewCellModel(cellType: TestCell.self, identifier: "test cell 2", model: .init(title: "Boom"))
         ])
     ])
     

@@ -27,8 +27,8 @@ class LabelCell: UITableViewCell, ReusableViewClass, DataSetupable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(_ data: Model) {
-        textLabel?.text = data.text
+    func setup(_ model: Model) {
+        textLabel?.text = model.text
     }
     
 }
