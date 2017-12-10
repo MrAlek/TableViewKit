@@ -13,6 +13,9 @@
 		93BC8A771FDD2BE700881E6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93BC8A761FDD2BE700881E6D /* Assets.xcassets */; };
 		93BC8A7A1FDD2BE700881E6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93BC8A781FDD2BE700881E6D /* LaunchScreen.storyboard */; };
 		93C62CE41FDD2D3F009CBBAA /* TableViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C62CE51FDD2D3F009CBBAA /* TableViewKit.framework */; };
+		93C62CEC1FDD4B97009CBBAA /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C62CEB1FDD4B97009CBBAA /* LabelCell.swift */; };
+		93C62CEE1FDD4D7C009CBBAA /* HandwrittenNoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C62CED1FDD4D7C009CBBAA /* HandwrittenNoteCell.xib */; };
+		93C62CF01FDD4D8C009CBBAA /* HandwrittenNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C62CEF1FDD4D8C009CBBAA /* HandwrittenNoteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		93BC8A7B1FDD2BE700881E6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93C62CE51FDD2D3F009CBBAA /* TableViewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TableViewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C62CE61FDD2D5A009CBBAA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		93C62CEB1FDD4B97009CBBAA /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
+		93C62CED1FDD4D7C009CBBAA /* HandwrittenNoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HandwrittenNoteCell.xib; sourceTree = "<group>"; };
+		93C62CEF1FDD4D8C009CBBAA /* HandwrittenNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandwrittenNoteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,7 @@
 		93BC8A6E1FDD2BE700881E6D /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				93C62CEA1FDD4B35009CBBAA /* Cells */,
 				93BC8A6F1FDD2BE700881E6D /* AppDelegate.swift */,
 				93BC8A711FDD2BE700881E6D /* DemoTableViewController.swift */,
 				93BC8A731FDD2BE700881E6D /* Main.storyboard */,
@@ -76,6 +83,16 @@
 				93C62CE51FDD2D3F009CBBAA /* TableViewKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93C62CEA1FDD4B35009CBBAA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				93C62CEB1FDD4B97009CBBAA /* LabelCell.swift */,
+				93C62CED1FDD4D7C009CBBAA /* HandwrittenNoteCell.xib */,
+				93C62CEF1FDD4D8C009CBBAA /* HandwrittenNoteCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +156,7 @@
 			files = (
 				93BC8A7A1FDD2BE700881E6D /* LaunchScreen.storyboard in Resources */,
 				93BC8A771FDD2BE700881E6D /* Assets.xcassets in Resources */,
+				93C62CEE1FDD4D7C009CBBAA /* HandwrittenNoteCell.xib in Resources */,
 				93BC8A751FDD2BE700881E6D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +169,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				93BC8A721FDD2BE700881E6D /* DemoTableViewController.swift in Sources */,
+				93C62CEC1FDD4B97009CBBAA /* LabelCell.swift in Sources */,
+				93C62CF01FDD4D8C009CBBAA /* HandwrittenNoteCell.swift in Sources */,
 				93BC8A701FDD2BE700881E6D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

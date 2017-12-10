@@ -9,51 +9,93 @@
 import UIKit
 import TableViewKit
 
+struct Person {
+    var name: String
+}
+
+struct Quote {
+    let id = UUID().uuidString
+    
+    var text: String
+    var author: Person
+}
+
 class DemoTableViewController: UITableViewController {
     
     lazy var dataSource: TableViewDataSource = TableViewDataSource()
     
+    var quotes: [Quote] = [
+        Quote(text: "I'll be back", author: Person(name: "Arnold Swarzenegger")),
+        Quote(text: "Look at me, I'm a pickle!", author: Person(name: "Rick Sanchez")),
+        Quote(text: "Stay Hungry. Stay Foolish.", author: Person(name: "Steve Jobs"))
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(TestCell.self)
+        tableView.register(LabelCell.self)
+        tableView.register(HandwrittenNoteCell.self)
+        tableView.allowsMultipleSelection = true
         dataSource.setup(with: tableView)
-        dataSource.updateSections(to: rebuildSections(), animation: .none)
+        updateSections(animated: false)
+    }
+    
+    func updateSections(animated: Bool) {
+        dataSource.updateSections(to: tableViewSections(), animation: animated ? .automatic : .none)
     }
 
-    func rebuildSections() -> [TableViewSection] {
+    func tableViewSections() -> [TableViewSection] {
         return [
-            TableViewSection(identifier: "section", cells: [
-                TableViewCellModel(cellType: TestCell.self, identifier: "test cell 1", data: .init(title: "Testing testing")),
-            ])
+            TableViewSection(
+                identifier: "section",
+                cells: [topLabelCellModel()].flatMap({ $0 }) + quotes.map(cellModel)
+            )
         ]
     }
     
-}
-
-fileprivate class TestCell: UITableViewCell, ReusableViewClass, DataSetupable {
-    
-    struct Model: Hashable, AnyEquatable {
-        let title: String
+    func topLabelCellModel() -> TableViewCellModel? {
+        guard let numberOfSelectedQuotes = tableView.indexPathsForSelectedRows?.count, numberOfSelectedQuotes > 0 else { return nil }
         
-        var hashValue: Int {
-            return title.hashValue
-        }
+        return TableViewCellModel(
+            cellType: LabelCell.self,
+            identifier: "test cell 1",
+            data: .init(text: "Quotes selected: \(numberOfSelectedQuotes)"),
+            isSelectable: false,
+            isMultiSelectable: false
+        )
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .default, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setup(_ data: Model) {
-        textLabel?.text = data.title
+    func cellModel(forQuote quote: Quote) -> TableViewCellModel {
+        return TableViewCellModel(
+            cellType: HandwrittenNoteCell.self,
+            identifier: quote.id,
+            data: .init(quote: quote),
+            selectionHandler: { [weak self] _, _, _ in
+                self?.updateSections(animated: true)
+            },
+            deselectionHandler: { [weak self] _, _, _ in
+                self?.updateSections(animated: true)
+            },
+            copyAction: { _, _, _ in
+                UIPasteboard.general.string = quote.shareableString
+            }
+        )
     }
     
 }
 
-fileprivate func ==(lhs: TestCell.Model, rhs: TestCell.Model) -> Bool {
-    return lhs.title == rhs.title
+extension Quote {
+    
+    var shareableString: String {
+        return "\"\(text)\" – \(author.name)"
+    }
+    
+}
+
+extension HandwrittenNoteCell.Model {
+    
+    init(quote: Quote) {
+        self.title = quote.text
+        self.subtitle = "– " + quote.author.name
+    }
+    
 }
