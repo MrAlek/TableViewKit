@@ -111,14 +111,14 @@ public class TableViewDataSource: NSObject {
         tableView.sectionFooterHeight = UITableViewAutomaticDimension
         
         ignoreDidEndDisplayingCells = true
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.reloadData()
         UIView.performWithoutAnimation {
             if tableView.numberOfSections > 0 {
                 tableView.scrollToRow(at: IndexPath(row: NSNotFound, section: 0), at: .top, animated: false)
             }
         }
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.reloadData()
         ignoreDidEndDisplayingCells = false
     }
     
