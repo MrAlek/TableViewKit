@@ -145,7 +145,7 @@ public class TableViewDataSource: NSObject {
     
     fileprivate var ignoreDidEndDisplayingCells = false
     
-    func recievedCellNeedsSizeUpdateNotification(notification: Notification) {
+    @objc func recievedCellNeedsSizeUpdateNotification(notification: Notification) {
         guard let cell = notification.object as? UITableViewCell else { return }
         guard let tableView = tableView, tableView.visibleCells.contains(cell) else { return }
         DispatchQueue.main.async { // Without the dispatch the animations looka weird.
@@ -301,7 +301,7 @@ extension TableViewDataSource: UITableViewDelegate {
 internal extension Collection {
     
     /// Returns the element at the specified index if it is within bounds, otherwise nil.
-    subscript (safe index: Index) -> Generator.Element? {
+    subscript (safe index: Index) -> Iterator.Element? {
         return indices.contains(index) ? self[index] : nil
     }
 

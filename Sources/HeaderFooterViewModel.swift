@@ -13,7 +13,8 @@ public struct TableViewHeaderFooterViewModel: Identifiable {
     /// A function to configure a `UITableViewHeaderFooterView`.
     public typealias Configurator = (UITableViewHeaderFooterView) -> UITableViewHeaderFooterView
     
-    fileprivate static let StandardHeight: CGFloat = 28.0
+    /// The default height for header footer views.
+    public static let StandardHeight: CGFloat = 28.0
     
     /// :nodoc:
     public let identifier: String
