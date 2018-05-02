@@ -12,10 +12,6 @@ fileprivate class TestCell: UITableViewCell, ReusableViewClass, DataSetupable {
     
     struct Model: Hashable, AnyEquatable {
         let title: String
-        
-        var hashValue: Int {
-            return title.hashValue
-        }
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -30,10 +26,6 @@ fileprivate class TestCell: UITableViewCell, ReusableViewClass, DataSetupable {
         textLabel?.text = model.title
     }
     
-}
-
-fileprivate func ==(lhs: TestCell.Model, rhs: TestCell.Model) -> Bool {
-    return lhs.title == rhs.title
 }
 
 class TableViewDataSourceTests: XCTestCase {

@@ -33,8 +33,3 @@ class HandwrittenNoteCell: UITableViewCell, ReusableViewNib, DataSetupable {
         return 100 // TODO: Add better estimation
     }
 }
-
-func ==(lhs: HandwrittenNoteCell.Model, rhs: HandwrittenNoteCell.Model) -> Bool {
-    return lhs.title == rhs.title
-        && lhs.subtitle == rhs.subtitle
-}

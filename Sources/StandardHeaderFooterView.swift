@@ -47,8 +47,3 @@ open class StandardHeaderFooterView: UITableViewHeaderFooterView, DataSetupable,
     }
     
 }
-
-/// :nodoc:
-public func ==(lhs: StandardHeaderFooterView.Model, rhs: StandardHeaderFooterView.Model) -> Bool {
-    return lhs.title == rhs.title && lhs.detailText == rhs.detailText
-}

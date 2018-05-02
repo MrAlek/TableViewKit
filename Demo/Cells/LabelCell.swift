@@ -13,10 +13,6 @@ class LabelCell: UITableViewCell, ReusableViewClass, DataSetupable {
     
     struct Model: Hashable, AnyEquatable {
         let text: String
-        
-        var hashValue: Int {
-            return text.hashValue
-        }
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -31,8 +27,4 @@ class LabelCell: UITableViewCell, ReusableViewClass, DataSetupable {
         textLabel?.text = model.text
     }
     
-}
-
-func ==(lhs: LabelCell.Model, rhs: LabelCell.Model) -> Bool {
-    return lhs.text == rhs.text
 }

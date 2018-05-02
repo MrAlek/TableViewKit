@@ -11,23 +11,13 @@ import XCTest
 struct TestStruct: Identifiable {
     var identifier: Int
     var text: String
-    
-    var hashValue: Int { return identifier }
-}
-
-func ==(lhs: TestStruct, rhs: TestStruct) -> Bool {
-    return (lhs.identifier == rhs.identifier && lhs.text == rhs.text)
 }
 
 private struct TestSection: IdentifiableSection {
     var identifier: Int
     var items: [TestStruct]
     
-    var hashValue: Int { return identifier }
-}
-
-private func ==(lhs: TestSection, rhs: TestSection) -> Bool {
-    return lhs.identifier == rhs.identifier // Purposely avoiding to include items in equals
+    var hashValue: Int { return identifier ^ items.count }
 }
 
 class ArrayComparison_Tests: XCTestCase {

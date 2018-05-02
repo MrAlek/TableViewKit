@@ -76,7 +76,7 @@ public struct TableViewCellModel: Identifiable {
     
     /// :nodoc:
     public var hashValue: Int {
-        return cellReuseIdentifier.hashValue
+        return identifier.hashValue
     }
     
     /// A plain initializer to be used with a standard `UITableViewCell`.
@@ -225,6 +225,7 @@ public func ==(lhs: TableViewCellModel, rhs: TableViewCellModel) -> Bool {
            lhs.cellReuseIdentifier == rhs.cellReuseIdentifier &&
            lhs.isSelectable == rhs.isSelectable &&
            lhs.isMultiSelectable == rhs.isMultiSelectable &&
+           lhs.editActions == rhs.editActions &&
            lhs.data == rhs.data &&
            lhs.preferredAnimation == rhs.preferredAnimation
 }

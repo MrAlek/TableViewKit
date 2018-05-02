@@ -23,37 +23,7 @@ public enum SectionedChangeType: Hashable {
     
     /// An update of an object with index paths before and after.
     case update(IndexPath, IndexPath)
-    
-    /// :nodoc:
-    public var hashValue: Int {
-        switch self {
-            case .insert(let newIndexPath):
-                return 1 ^ newIndexPath.hashValue
-            case .delete(let oldIndexPath):
-                return 2 ^ oldIndexPath.hashValue
-            case .move(let oldIndexPath, let newIndexPath):
-                return 3 ^ oldIndexPath.hashValue ^ newIndexPath.hashValue
-            case .update(let oldIndexPath, let newIndexPath):
-                return 4 ^ oldIndexPath.hashValue ^ newIndexPath.hashValue
-        }
-    }
 
-}
-
-/// :nodoc:
-public func ==(lhs: SectionedChangeType, rhs: SectionedChangeType) -> Bool {
-    switch (lhs, rhs) {
-        case let (.insert(l1), .insert(r1)):
-            return l1 == r1
-        case let (.delete(l1), .delete(r1)):
-            return l1 == r1
-        case let (.move(l1, l2), .move(r1, r2)):
-            return l1 == r1 && l2 == r2
-        case let (.update(l1, l2), .update(r1, r2)):
-            return l1 == r1 && l2 == r2
-        default:
-            return false
-    }
 }
 
 extension SectionedChangeType: CustomDebugStringConvertible {
@@ -94,15 +64,5 @@ public struct SectionedArrayChange<Item: Identifiable>: Hashable {
         self.item = item
         self.type = type
     }
-    
-    /// :nodoc:
-    public var hashValue: Int {
-        return item.hashValue ^ type.hashValue
-    }
 
-}
-
-/// :nodoc:
-public func ==<T>(lhs: SectionedArrayChange<T>, rhs: SectionedArrayChange<T>) -> Bool {
-    return lhs.type == rhs.type && lhs.item == rhs.item
 }
