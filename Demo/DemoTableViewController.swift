@@ -47,7 +47,7 @@ class DemoTableViewController: UITableViewController {
         return [
             TableViewSection(
                 identifier: "section",
-                cells: [topLabelCellModel()].flatMap({ $0 }) + quotes.map(cellModel)
+                cells: [topLabelCellModel()].compactMap({ $0 }) + quotes.map(cellModel)
             )
         ]
     }

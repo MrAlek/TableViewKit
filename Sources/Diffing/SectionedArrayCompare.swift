@@ -28,7 +28,7 @@ public extension Array where Element: IdentifiableSection, Element.Identifier ==
         var deletedItems: Set<Element.Item> = []
         var insertedItems: Set<Element.Item> = []
         
-        var itemChanges: [SectionedArrayChange<Element.Item>] = flatItemChanges.flatMap { flatChange in
+        var itemChanges: [SectionedArrayChange<Element.Item>] = flatItemChanges.compactMap { flatChange in
             
             let changeType: SectionedChangeType
             switch flatChange.type {
@@ -60,7 +60,7 @@ public extension Array where Element: IdentifiableSection, Element.Identifier ==
             // Find all necessary moves needed to fix this particular section
             let changesForMovedObjects = beforeSectionItems.changes(to: afterSectionItems)
             
-            itemChanges += changesForMovedObjects.flatMap { change in
+            itemChanges += changesForMovedObjects.compactMap { change in
                 
                 let identifier = change.item.identifier
                 

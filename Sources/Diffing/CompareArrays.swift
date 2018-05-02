@@ -137,10 +137,10 @@ public extension Array where Element: Identifiable {
             }
         }
         
-        var newArray = workingCopy.flatMap {$0}
+        var newArray = workingCopy.compactMap {$0}
         
         // Second pass: inserts. Sort them in indexed order to avoid trying to insert into an index out of bounds
-        let inserts: [(Int, Element)] = changes.flatMap { change in
+        let inserts: [(Int, Element)] = changes.compactMap { change in
             switch change.type {
                 case .insert(let index):
                     return (index, change.item)

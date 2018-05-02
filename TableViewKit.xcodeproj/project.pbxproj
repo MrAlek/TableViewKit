@@ -54,13 +54,6 @@
 			remoteGlobalIDString = 93BC8A6C1FDD2BE700881E6D;
 			remoteInfo = TableViewKitDemo;
 		};
-		93C62CE11FDD2CB4009CBBAA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93C62CDB1FDD2CB4009CBBAA /* TableViewKitDemo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 93BC8A6C1FDD2BE700881E6D;
-			remoteInfo = TableViewKitDemo;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -85,7 +78,6 @@
 		934896F71FDDCEF00019E9EA /* ArraySetOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArraySetOperations.swift; sourceTree = "<group>"; };
 		934896F81FDDCEF00019E9EA /* SectionedArrayCompare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionedArrayCompare.swift; sourceTree = "<group>"; };
 		93BC8A871FDD2C4B00881E6D /* TableViewKitDemo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = TableViewKitDemo.xcodeproj; sourceTree = "<group>"; };
-		93C62CDB1FDD2CB4009CBBAA /* TableViewKitDemo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = TableViewKitDemo.xcodeproj; sourceTree = "<group>"; };
 		93F649B11FDD24870067438D /* AnyEquatableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyEquatableTests.swift; sourceTree = "<group>"; };
 		93F649B21FDD24870067438D /* SectionedArrayCompareTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionedArrayCompareTests.swift; sourceTree = "<group>"; };
 		93F649B31FDD24870067438D /* TableViewDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceTests.swift; sourceTree = "<group>"; };
@@ -118,7 +110,6 @@
 		52D6D9721BEFF229002C0205 = {
 			isa = PBXGroup;
 			children = (
-				93C62CDB1FDD2CB4009CBBAA /* TableViewKitDemo.xcodeproj */,
 				93F649B01FDD24310067438D /* Tests */,
 				9328427F1FDC836400B6CC91 /* Sources */,
 				52D6D99C1BEFF38C002C0205 /* Configs */,
@@ -199,14 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				93BC8A8C1FDD2C4B00881E6D /* TableViewKitDemo.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		93C62CDC1FDD2CB4009CBBAA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				93C62CE21FDD2CB4009CBBAA /* TableViewKitDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -294,7 +277,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = TableViewKit;
 				TargetAttributes = {
 					52D6D97B1BEFF229002C0205 = {
@@ -326,10 +309,6 @@
 					ProductGroup = 93BC8A811FDD2C2400881E6D /* Products */;
 					ProjectRef = 93F649D71FDD2B890067438D /* TableViewKitDemo.xcodeproj */;
 				},
-				{
-					ProductGroup = 93C62CDC1FDD2CB4009CBBAA /* Products */;
-					ProjectRef = 93C62CDB1FDD2CB4009CBBAA /* TableViewKitDemo.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -352,13 +331,6 @@
 			fileType = wrapper.application;
 			path = TableViewKitDemo.app;
 			remoteRef = 93BC8A8B1FDD2C4B00881E6D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		93C62CE21FDD2CB4009CBBAA /* TableViewKitDemo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = TableViewKitDemo.app;
-			remoteRef = 93C62CE11FDD2CB4009CBBAA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -439,12 +411,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -496,12 +470,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
