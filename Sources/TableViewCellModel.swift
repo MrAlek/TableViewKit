@@ -225,6 +225,17 @@ public struct TableViewCellModel: Identifiable {
     }
 }
 
+extension TableViewCellModel.CellEditActions: Equatable {
+    public static func ==(lhs: TableViewCellModel.CellEditActions, rhs: TableViewCellModel.CellEditActions) -> Bool {
+        switch (lhs, rhs) {
+        case (.none, .none): return true
+        case (.swipeToDelete, .swipeToDelete): return true
+        case (.editActions(let lhsEditActions), .editActions(let rhsEditActions)): return lhsEditActions == rhsEditActions
+        default: return false
+        }
+    }
+}
+
 /// :nodoc:
 public func ==(lhs: TableViewCellModel, rhs: TableViewCellModel) -> Bool {
     return lhs.identifier == rhs.identifier &&
