@@ -15,6 +15,12 @@ public struct TableViewCellModel: Identifiable {
     public typealias CellConfigurator = (UITableView, UITableViewCell) -> Void
     public typealias Handler = (UITableView, IndexPath) -> Void
     public typealias CellHandler = (UITableView, UITableViewCell, IndexPath) -> Void
+
+    public enum CellEditActions {
+        case none
+        case swipeToDelete(handler: Handler?)
+        case editActions(actions: [UITableViewRowAction])
+    }
     
     internal static let StandardHeight: CGFloat = 44.0
     
@@ -55,7 +61,7 @@ public struct TableViewCellModel: Identifiable {
     public var didEndDisplayHandler: CellHandler?
     
     /// The edit actions for this cell.
-    public var editActions: [UITableViewRowAction]?
+    public var editActions: CellEditActions
 
     /// The optional copy menu action for this cell.
     public var copyAction: CellHandler?
@@ -111,7 +117,7 @@ public struct TableViewCellModel: Identifiable {
         deselectionHandler: Handler? = nil,
         willDisplayHandler: CellHandler? = nil,
         didEndDisplayHandler: CellHandler? = nil,
-        editActions: [UITableViewRowAction]? = nil,
+        editActions: CellEditActions = .none,
         copyAction: CellHandler? = nil,
         pasteAction: CellHandler? = nil,
         preferredAnimation: UITableViewRowAnimation = .automatic) {
@@ -164,7 +170,7 @@ public struct TableViewCellModel: Identifiable {
         deselectionHandler: ((UITableView, IndexPath, Cell) -> Void)? = nil,
         willDisplayHandler: ((UITableView, IndexPath, Cell) -> Void)? = nil,
         didEndDisplayHandler: ((UITableView, IndexPath, Cell) -> Void)? = nil,
-        editActions: [UITableViewRowAction]? = nil,
+        editActions: CellEditActions = .none,
         copyAction: ((UITableView, IndexPath, Cell) -> Void)? = nil,
         pasteAction: ((UITableView, IndexPath, Cell) -> Void)? = nil,
         preferredAnimation: UITableViewRowAnimation = .automatic) where Cell: ReusableViewType {

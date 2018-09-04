@@ -46,7 +46,7 @@ public extension UITableViewCell {
             case .fullWidth:
                 separatorInset = .zero
             case .none:
-                separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+                separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: bounds.width)
             case .default:
                 separatorInset = UIEdgeInsets(top: 0, left: layoutMargins.left, bottom: 0, right: 0)
         }

@@ -183,10 +183,18 @@ extension TableViewDataSource: UITableViewDataSource {
         if tableView.isMultiSelecting {
             return cellModel.isMultiSelectable
         } else {
-            return cellModel.editActions?.count ?? 0 > 0
+            switch cellModel.editActions {
+            case .editActions(let actions):
+                return actions.count > 0
+
+            case .swipeToDelete:
+                return true
+
+            case .none:
+                return false
+            }
         }
     }
-
 }
 
 extension TableViewDataSource: UITableViewDelegate {
@@ -194,6 +202,24 @@ extension TableViewDataSource: UITableViewDelegate {
     /// :nodoc:
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         sections[indexPath.section].items[indexPath.row].willDisplayHandler?(tableView, cell, indexPath)
+    }
+
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let cell = sections[indexPath]
+
+        switch editingStyle {
+        case .delete:
+            if case .swipeToDelete(let cellHandler) = cell.editActions {
+                sections[indexPath.section].items.remove(at: indexPath.row)
+                tableView.beginUpdates()
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.endUpdates()
+                cellHandler?(tableView, indexPath)
+            }
+
+        case .insert, .none:
+            break
+        }
     }
     
     /// :nodoc:
@@ -266,7 +292,13 @@ extension TableViewDataSource: UITableViewDelegate {
     
     /// :nodoc:
     public func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        return sections[indexPath.section].items[indexPath.row].editActions
+        let cell = sections[indexPath]
+
+        if case .editActions(let actions) = cell.editActions {
+            return actions
+        } else {
+            return nil
+        }
     }
 
     /// :nodoc:
